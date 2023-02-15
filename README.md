@@ -2,14 +2,11 @@ Background: black
 
 <p>Hello, world!</p>
 
-<button onclick="startAnimation()">Play Animation</button>
-
-<img src="gitpage1.GIF" style="display:none;" />
+<img src="IMG_4195.GIF" style="display:block; autoplay: true; loop: true; preload: auto; width: 200px; height: 200px;" />
 
 <script>
-function startAnimation() {
+window.onload = function() {
   // Trigger animation
-  document.querySelector("img").style.display = "block";
   document.querySelector("img").play();
 }
 </script>
