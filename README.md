@@ -1,10 +1,13 @@
 <p>Hello, world!</p>
 
-<img src="gitpage1.GIF" style="display:block; autoplay: true; loop: true; preload: auto; width: 200px; height: 200px;" />
+<button onclick="startAnimation()">Play Animation</button>
+
+<img src="gitpage1.GIF" style="display:none;" />
 
 <script>
-window.onload = function() {
+function startAnimation() {
   // Trigger animation
+  document.querySelector("img").style.display = "block";
   document.querySelector("img").play();
 }
 </script>
