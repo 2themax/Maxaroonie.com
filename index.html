@@ -1,8 +1,8 @@
 <head>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<H1> Hello, world! </H1>
-<button onclick="playAudioLoop()" style="float:right; padding: 10px; width: 150px;">Play Audio</button>
+<H1> Hello, world! <button onclick="playAudioLoop()">Play Audio</button>
+
 <audio id="audio" src="Audio 1.m4a" loop="true"></audio>
 
 <script>
@@ -11,6 +11,8 @@ function playAudioLoop() {
   var audio = document.getElementById("audio"); 
   audio.play();
 }
+</script> 
+</H1>
 
 <div style="float: left; margin-bottom: 50px;">
 <img src="IMG_4195.GIF" style="display:block; autoplay: true; loop: true; preload: auto; width: 450px; height: 600px;" />
