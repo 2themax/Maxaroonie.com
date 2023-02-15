@@ -2,7 +2,7 @@ Background: black
 
 <p>Hello, world!</p>
 
-<img src="IMG_4195.GIF" style="display:block; autoplay: true; loop: true; preload: auto; width: 200px; height: 200px;" />
+<img src="IMG_4195.GIF" style="display:block; autoplay: true; loop: true; preload: auto; width: 400px; height: 300px;" />
 
 <script>
 window.onload = function() {
