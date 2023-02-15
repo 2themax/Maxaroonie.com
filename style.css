@@ -2,3 +2,7 @@ body { background-color: #000000; }
 h1 {
   color: #fff !important;
 }
+p {
+  color: #fff;
+  font-size: 1.2em;
+}
