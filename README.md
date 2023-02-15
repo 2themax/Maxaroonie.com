@@ -1,5 +1,6 @@
 <p>Hello, world!</p>
- <img src="gitpage1.GIF" style="display:block; autplay: true; loop: true; preload: auto; width: 200px; height: 200px;" />
+
+<img src="gitpage1.GIF" style="display:block; autoplay: true; loop: true; preload: auto; width: 200px; height: 200px;" />
 
 <script>
 window.onload = function() {
@@ -7,5 +8,6 @@ window.onload = function() {
   document.querySelector("img").play();
 }
 </script>
+
 ![Screenshot 2023-02-14 1.01.39 PM](Screenshot 2023-02-14 1.01.39 PM.png)
 <audio src="Audio 1.m4a" autoplay loop> </audio>
