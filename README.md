@@ -1,3 +1,5 @@
+Background: black
+
 <p>Hello, world!</p>
 
 <button onclick="startAnimation()">Play Animation</button>
