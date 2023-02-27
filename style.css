@@ -3,3 +3,45 @@ h1 {
   color: #fff !important;
 }
 <p style="color: #fff;">
+
+html, body {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: up-and-down 3s ease-in-out infinite alternate, left-and-right 10s linear infinite;
+}
+
+@keyframes up-and-down {
+  0% {
+    bottom: 0;
+  }
+  50% {
+    bottom: calc(100% - 20px);
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes left-and-right {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: calc(100% - 20px);
+  }
+}
