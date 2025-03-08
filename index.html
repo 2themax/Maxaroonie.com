@@ -1,40 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Maxaroonie's personal creative space">
+    <title>Maxaroonie.com - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script defer src="script.js"></script>
 </head>
-<H1> Hello, world! <button onclick="playAudioLoop()">Play Audio</button>
 
-<audio id="audio" src="Audio 1.m4a" loop="true"></audio>
+<body>
+    <header>
+        <h1 class="site-title">Hello, world!</h1>
+        <nav>
+            <a href="about.html">About Me</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-<script>
-function playAudioLoop() {
-  // Play audio
-  var audio = document.getElementById("audio"); 
-  audio.play();
-}
-</script> 
-</H1>
-<div style="float: left;">
-<img src="IMG_4195.GIF" style="display:block; autoplay: true; loop: true; preload: auto; width: 450px; height: 600px;" />
-</div>
-<div style="float:right; width:450px; padding: 0; margin:0">  <h2 style="color:white;">Welcome to Maxaroonie.com!!!! <br></h2>
-<pre style="color:white;"> 
-<p>HEAVILY UNDER CONSTRUCTION...</p>
-<p>Maxaroonie.com is an online platform that</p>
-<p>enables me to express my creative ideas</p>
-<p>through the use of text-based,</p>
-<p>visual, and audio means.</p>
-<p>It was created with the intent to,</p>
-<p>provide an open and accessible</p>
-<p>platform for me to</p> 
-<p>collaborate, create, and learn with others.</p></pre>
-</div>
-<script>
-window.onload = function() {
-  // Trigger animation
-  document.query
-  Selector("img").play();
-}
- 
-<div class="container">
-  <div class="dot"></div>
-</div>
+    <!-- MAIN HOME CONTENT -->
+    <section class="home-section">
+        <div class="audio-control-container">
+          <button id="play-home-audio" class="audio-btn">Play Audio</button>
+          <audio id="home-audio" src="Audio 1.m4a" preload="metadata" loop></audio>
+        </div>
+
+        <div class="home-layout">
+            <!-- Left image (GIF) -->
+            <div class="home-left">
+                <img src="IMG_4195.GIF" alt="Animated Creative Expression" />
+            </div>
+
+            <!-- Right text block -->
+            <div class="home-right">
+                <h2>Welcome to Maxaroonie.com!!!!</h2>
+                <p><strong>HEAVILY UNDER CONSTRUCTION...</strong></p>
+                <p>
+                    Maxaroonie.com is an online platform that enables me to express my
+                    creative ideas through text-based, visual, and audio means.
+                </p>
+                <p>
+                    It was created with the intent to provide an open and accessible
+                    platform for me to collaborate, create, and learn with others.
+                </p>
+                <p>
+                    Feel free to explore the site and check back often for new content
+                    and features as I continue to develop this creative space.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contact</h2>
+        <p>Have questions or want to collaborate? Reach out!</p>
+        <p>Email me at: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        <p>Follow me on social media:
+            <!-- Add actual links when available -->
+            <a href="#" target="_blank">Instagram</a> |
+            <a href="#" target="_blank">Twitter</a> |
+            <a href="#" target="_blank">YouTube</a>
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2025 Maxaroonie.com. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

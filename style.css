@@ -1,47 +1,177 @@
-body { background-color: #000000; }
-h1 {
-  color: #fff !important;
-}
-<p style="color: #fff;">
-
+/* ---------------------------------
+   GLOBAL & BODY STYLES
+---------------------------------- */
 html, body {
-  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #000; /* fallback color */
+  color: #fff;
+  /* You can keep or remove the random color changes if using script.js to modify background */
 }
 
-.container {
-  height: 100%;
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:hover {
+  color: cyan;
+}
+
+/* ---------------------------------
+   HEADER
+---------------------------------- */
+header {
   position: relative;
+  padding: 20px;
+  text-align: center;
+  background: #111;
+  overflow: hidden;
+}
+.site-title {
+  margin: 0;
+  font-size: 2rem;
+}
+nav a {
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+/* ---------------------------------
+   HOME PAGE STYLES
+---------------------------------- */
+.home-section {
+  padding: 40px 20px;
+  text-align: center;
+  background: #222;
+}
+
+.home-layout {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.home-left img {
+  width: 450px;
+  height: 600px;
+  display: block;
+}
+
+.home-right {
+  width: 450px;
+  margin: 0;
+  padding: 0 20px;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  padding: 40px;
+  background: #333;
+  text-align: center;
+}
+
+/* ---------------------------------
+   AUDIO BUTTON (SHARED)
+---------------------------------- */
+.audio-btn {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  color: #fff;
+  cursor: pointer !important; /* Force cursor change */
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0,123,255,0.5);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1000; /* Ensure it's above the tapestry */
+  outline: none;
+  min-width: 180px;
+}
+
+.audio-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #009fff);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,123,255,0.6);
+}
+
+.audio-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 5px rgba(0,123,255,0.5);
+}
+
+/* Add a container to help with positioning */
+.audio-control-container {
+  position: relative;
+  z-index: 1000;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+/* ---------------------------------
+   ABOUT PAGE STYLES
+---------------------------------- */
+.about-section {
+  position: relative;
+  min-height: 80vh;
+  background: rgba(17, 17, 17, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Change to flex-start for better control */
+  padding: 40px 20px;
   overflow: hidden;
 }
 
-.dot {
-  width: 20px;
-  height: 20px;
-  background-color: red;
-  border-radius: 50%;
+.tapestry-grid {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  animation: up-and-down 3s ease-in-out infinite alternate, left-and-right 10s linear infinite;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+  opacity: 0.3;
+  z-index: 1; /* Lower z-index than button */
+  pointer-events: none; /* Prevents grid from capturing clicks */
 }
 
-@keyframes up-and-down {
-  0% {
-    bottom: 0;
-  }
-  50% {
-    bottom: calc(100% - 20px);
-  }
-  100% {
-    bottom: 0;
-  }
+
+.tapestry-grid div {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-@keyframes left-and-right {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: calc(100% - 20px);
-  }
+.about-section h2,
+.about-section p {
+  position: relative;
+  z-index: 10;
+}
+
+}
+.about-section h2 {
+  font-size: 2rem;
+  margin-top: 20px;
+}
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* ---------------------------------
+   FOOTER
+---------------------------------- */
+footer {
+  background: #444;
+  padding: 15px;
+  text-align: center;
+  color: #ccc;
 }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Maxaroonie.com</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Add script at top for troubleshooting -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('Page loaded');
+            // Check if elements exist immediately
+            const btn = document.getElementById('play-about-audio');
+            console.log('Button found:', btn !== null);
+        });
+    </script>
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="site-title">About Max</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <!-- AUDIO CONTROLS - Simplified and more prominent -->
+        <div class="audio-control-container">
+            <button id="play-about-audio" class="audio-btn" style="cursor:pointer; position:relative; z-index:1000;">
+                Play Audio
+            </button>
+            <audio id="about-audio" src="final_lounge_with_voice_faded.wav" preload="auto"></audio>
+        </div>
+
+        <!-- Mosaic of silly images - z-index lowered to prevent overlap -->
+        <div class="tapestry-grid" style="z-index:1;">
+            <!-- Image divs unchanged -->
+            <div style="background-image: url('doodles/Sillyguy1.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy2.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy3.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy4.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy5.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy6.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy7.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy8.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy9.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy10.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy11.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy12.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy13.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy14.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy15.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy16.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy17.jpeg');"></div>
+            <div style="background-image: url('doodles/Sillyguy18.jpeg');"></div>
+        </div>
+
+        <h2>About Me</h2>
+        <p>
+            Hello, I'm Maxaroonie, a guy who channels a lifelong spark of creativity
+            into every painting. My mission is simple: to share that spark through each stroke,
+            inviting others to see the world in vibrant, unexpected ways.
+        </p>
+        <p>
+            Each painting is a small leap into the unknown, an experiment in translating
+            daydreams into something tangible and meaningful. I believe art should be accessible,
+            thought-provoking, and a little playful. Thank you for stopping by—feel free to explore
+            my
+            work and reach out if you'd like to connect or collaborate!
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2025 Maxaroonie.com. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
