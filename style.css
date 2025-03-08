@@ -7,7 +7,6 @@ html, body {
   font-family: Arial, sans-serif;
   background: #000; /* fallback color */
   color: #fff;
-  /* You can keep or remove the random color changes if using script.js to modify background */
 }
 
 a {
@@ -28,10 +27,12 @@ header {
   background: #111;
   overflow: hidden;
 }
+
 .site-title {
   margin: 0;
   font-size: 2rem;
 }
+
 nav a {
   margin: 0 15px;
   font-weight: bold;
@@ -53,13 +54,15 @@ nav a {
 }
 
 .home-left img {
-  width: 450px;
-  height: 600px;
+  width: 45%; /* Make image responsive */
+  max-width: 450px; /* Set a maximum width */
+  height: auto; /* Maintain aspect ratio */
   display: block;
+  margin: 0 auto; /* Center the image */
 }
 
 .home-right {
-  width: 450px;
+  width: 45%;
   margin: 0;
   padding: 0 20px;
 }
@@ -80,12 +83,12 @@ nav a {
   padding: 12px 24px;
   border-radius: 30px;
   color: #fff;
-  cursor: pointer !important; /* Force cursor change */
+  cursor: pointer !important;
   font-size: 1.1rem;
   font-weight: bold;
   margin: 20px auto;
   display: block;
-  box-shadow: 0 4px 10px rgba(0,123,255,0.5);
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5);
   transition: all 0.3s ease;
   position: relative;
   z-index: 1000; /* Ensure it's above the tapestry */
@@ -96,12 +99,12 @@ nav a {
 .audio-btn:hover {
   background: linear-gradient(135deg, #0056b3, #009fff);
   transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0,123,255,0.6);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.6);
 }
 
 .audio-btn:active {
   transform: translateY(1px) scale(0.98);
-  box-shadow: 0 2px 5px rgba(0,123,255,0.5);
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.5);
 }
 
 /* Add a container to help with positioning */
@@ -124,14 +127,15 @@ nav a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Change to flex-start for better control */
+  justify-content: flex-start;
   padding: 40px 20px;
   overflow: hidden;
 }
 
 .tapestry-grid {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   display: grid;
@@ -139,10 +143,9 @@ nav a {
   grid-template-rows: repeat(3, 1fr);
   gap: 2px;
   opacity: 0.3;
-  z-index: 1; /* Lower z-index than button */
-  pointer-events: none; /* Prevents grid from capturing clicks */
+  z-index: 1;
+  pointer-events: none;
 }
-
 
 .tapestry-grid div {
   background-position: center;
@@ -156,11 +159,11 @@ nav a {
   z-index: 10;
 }
 
-}
 .about-section h2 {
   font-size: 2rem;
   margin-top: 20px;
 }
+
 .about-section p {
   font-size: 1.1rem;
   line-height: 1.6;
@@ -174,4 +177,57 @@ footer {
   padding: 15px;
   text-align: center;
   color: #ccc;
+}
+
+/* ---------------------------------
+   MEDIA QUERIES FOR MOBILE
+---------------------------------- */
+@media (max-width: 768px) {
+  .site-title {
+    font-size: 1.5rem;
+  }
+
+  nav a {
+    margin: 0 10px;
+  }
+
+  .home-layout {
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .home-left,
+  .home-right {
+    width: 90%; /* Take up most of the screen width */
+    text-align: center; /* Center text within the sections */
+  }
+
+  .home-left img {
+    width: 80%; /* Make image responsive within the mobile layout */
+    max-width: none; /* Remove max-width restriction */
+    margin-bottom: 20px; /* Add spacing below the image */
+  }
+
+  .home-right {
+    padding: 0; /* Remove padding on smaller screens */
+  }
+
+  .about-section {
+    padding: 20px 10px; /* Adjust padding for smaller screens */
+  }
+
+  .about-section h2 {
+    font-size: 1.75rem; /* Slightly smaller heading */
+  }
+
+  .about-section p {
+    font-size: 1rem; /* Slightly smaller paragraph text */
+    line-height: 1.5;
+  }
+
+  .audio-btn {
+    font-size: 1rem; /* Smaller button text */
+    padding: 10px 20px; /* Smaller button padding */
+    min-width: 150px;
+  }
 }
