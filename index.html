@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Maxaroonie's personal creative space">
+    <meta name="description" content="Maxaroonie.com: The personal creative space, portfolio, and writings of Maxaroonie.">
     <title>Maxaroonie.com - Home</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -20,7 +20,6 @@
         </nav>
     </header>
 
-    <!-- MAIN HOME CONTENT -->
     <section class="home-section">
         <div class="audio-control-container">
           <button id="play-home-audio" class="audio-btn">Play Audio</button>
@@ -28,12 +27,10 @@
         </div>
 
         <div class="home-layout">
-            <!-- Left image (GIF) -->
             <div class="home-left">
                 <img src="IMG_4195.GIF" alt="Animated Creative Expression" />
             </div>
 
-            <!-- Right text block -->
             <div class="home-right">
                 <h2>Welcome to Maxaroonie.com!!!!</h2>
                 <p><strong>HEAVILY UNDER CONSTRUCTION...</strong></p>
@@ -56,9 +53,20 @@
     <section id="contact" class="contact-section">
         <h2>Contact</h2>
         <p>Have questions or want to collaborate? Reach out!</p>
-        <p>Email me at: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        
+        <form action="https://formspree.io/f/xnnoblvw" method="POST" class="contact-form">
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="audio-btn">Send</button>
+        </form>
+        
         <p>Follow me on social media:
-            <!-- Add actual links when available -->
             <a href="#" target="_blank">Instagram</a> |
             <a href="#" target="_blank">Twitter</a> |
             <a href="#" target="_blank">YouTube</a>
@@ -69,5 +77,4 @@
         <p>© 2025 Maxaroonie.com. All rights reserved.</p>
     </footer>
 </body>
-
 </html>
