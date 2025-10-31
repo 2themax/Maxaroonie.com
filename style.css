@@ -1,22 +1,27 @@
 /* ---------------------------------
+   STARFIELD BACKGROUND
+---------------------------------- */
+#starfield-canvas {
+    position: fixed; /* Stays in place when you scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Sits BEHIND all other content */
+    background: #000; /* Solid black background */
+}
+/* ---------------------------------
    GLOBAL & BODY STYLES
 ---------------------------------- */
 html, body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background: #000; /* fallback color */
+  font-family: 'Lato', Arial, sans-serif;
+  background: #transparent;
   color: #fff;
+  font-size: 16px;
+  line-height: 1.6;
 }
-
-a {
-  color: #fff;
-  text-decoration: none;
-}
-a:hover {
-  color: cyan;
-}
-
 /* ---------------------------------
    HEADER
 ---------------------------------- */
@@ -24,8 +29,10 @@ header {
   position: relative;
   padding: 20px;
   text-align: center;
-  background: #111;
+  background: transparent; /* CHANGED from #111 */
   overflow: hidden;
+  border-bottom: 1px solid #333; /* ADDED for definition */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* MOVED from JS */
 }
 
 .site-title {
@@ -44,7 +51,7 @@ nav a {
 .home-section {
   padding: 40px 20px;
   text-align: center;
-  background: #222;
+  background: transparent; /* CHANGED from #222 */
 }
 
 .home-layout {
@@ -70,7 +77,7 @@ nav a {
 /* CONTACT SECTION */
 .contact-section {
   padding: 40px;
-  background: #333;
+  background: transparent; /* CHANGED from #333 */
   text-align: center;
 }
 
@@ -123,7 +130,8 @@ nav a {
 .about-section {
   position: relative;
   min-height: 80vh;
-  background: rgba(17, 17, 17, 0.8);
+  /* background: rgba(17, 17, 17, 0.8); */ /* REMOVED this */
+  background: transparent; /* ADDED this */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -173,12 +181,12 @@ nav a {
    FOOTER
 ---------------------------------- */
 footer {
-  background: #444;
+  background: transparent; /* CHANGED from #444 */
+  border-top: 1px solid #333; /* ADDED for definition */
   padding: 15px;
   text-align: center;
   color: #ccc;
 }
-
 /* ---------------------------------
    MEDIA QUERIES FOR MOBILE
 ---------------------------------- */
@@ -239,7 +247,7 @@ footer {
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
-    background: #1a1a1a;
+    background: #transparent;
     border-radius: 8px;
 }
 

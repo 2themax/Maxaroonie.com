@@ -64,19 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupAudioButton('play-about-audio', 'about-audio');
 
 
-  // Background animation effect
-  const body = document.body;
-  const colors = ['#1a1a2e', '#16213e', '#0f3460', '#442b48', '#251b37', '#113537', '#1c2b2d'];
-  let currentIndex = 0;
-
-  // Change background color smoothly
-  setInterval(() => {
-      const nextIndex = (currentIndex + 1) % colors.length;
-      body.style.background = `linear-gradient(45deg, ${colors[currentIndex]}, ${colors[nextIndex]})`;
-      body.style.transition = 'background 3s ease';
-      currentIndex = nextIndex;
-  }, 8000);
-
   // Add subtle header animation on scroll
   const header = document.querySelector('header');
   if (header) {
@@ -100,4 +87,78 @@ document.addEventListener('DOMContentLoaded', () => {
           img.alt = 'Image not found';
       });
   });
-});
+// ---------------------------------
+  // STARFIELD ANIMATION ENGINE
+  // ---------------------------------
+  const canvas = document.getElementById('starfield-canvas');
+  if (canvas) {
+      const ctx = canvas.getContext('2d');
+
+      let width, height;
+      let stars = [];
+      const starCount = 1000; // Number of stars
+      const speed = 1.5;     // Speed of stars
+
+      // Star object
+      function Star() {
+          this.x = Math.random() * width - width / 2;
+          this.y = Math.random() * height - height / 2;
+          this.z = Math.random() * width;
+
+          this.update = function() {
+              this.z = this.z - speed;
+              if (this.z < 1) {
+                  this.z = width;
+                  this.x = Math.random() * width - width / 2;
+                  this.y = Math.random() * height - height / 2;
+              }
+          };
+
+          this.draw = function() {
+              const x = (this.x / this.z) * width / 2 + width / 2;
+              const y = (this.y / this.z) * height / 2 + height / 2;
+              const radius = Math.max(0, (1 - this.z / width) * 1.5);
+              
+              ctx.beginPath();
+              ctx.arc(x, y, radius, 0, Math.PI * 2);
+              ctx.fillStyle = 'rgba(255, 255, 255, 0.8)'; // Star color
+              ctx.fill();
+          };
+      }
+
+      // Resize canvas to fill window
+      function resize() {
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width;
+          canvas.height = height;
+          ctx.translate(width / 2, height / 2); // Center the origin
+      }
+
+      // Animation loop
+      function animate() {
+          ctx.clearRect(-width / 2, -height / 2, width, height); // Clear canvas
+          
+          for (let star of stars) {
+              star.update();
+              star.draw();
+          }
+          
+          requestAnimationFrame(animate); // High-performance loop
+      }
+
+      // Initialization
+      function init() {
+          resize(); // Set initial size
+          
+          // Create stars
+          for (let i = 0; i < starCount; i++) {
+              stars.push(new Star());
+          }
+          
+          animate(); // Start animation
+      }
+
+      window.addEventListener('resize', resize); // Re-run resize on window change
+      init();
+  }});
