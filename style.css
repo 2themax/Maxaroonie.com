@@ -337,9 +337,9 @@ nav a {
   -webkit-backdrop-filter: blur(10px);
 }
 .portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  /* We are replacing the 'display: grid' properties */
+  column-count: 3; /* Default for desktop (e.g., 3 columns) */
+  column-gap: 20px;
 }
 .portfolio-item {
   position: relative;
@@ -347,11 +347,20 @@ nav a {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   background: #222;
-  
-  /* Add the glass border */
   border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  /* NEW: Replaces grid-gap and controls flow */
+  margin-bottom: 20px;
+  break-inside: avoid; /* This prevents an item from splitting across columns */
 }
-.portfolio-item img { display: block; width: 100%; height: auto; transition: transform 0.3s ease; }
+.portfolio-item img {
+  display: block;
+  width: 100%;
+  height: auto; /* REVERTED: Allows image's natural height */
+  /* REMOVED: height: 300px; */
+  /* REMOVED: object-fit: cover; */
+  transition: transform 0.3s ease;
+}
 .portfolio-caption { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(0, 0, 0, 0.85); color: #fff; padding: 15px; box-sizing: border-box; transform: translateY(100%); transition: transform 0.3s ease-in-out; }
 .portfolio-item:hover .portfolio-caption { transform: translateY(0); }
 .portfolio-item:hover img { transform: scale(1.05); }
@@ -478,4 +487,18 @@ footer {
   border-radius: 50%;
   cursor: pointer;
   border: 2px solid #00c6ff;
+}
+/* ---------------------------------
+   NEW: MASONRY MEDIA QUERIES
+---------------------------------- */
+@media (max-width: 992px) {
+  .portfolio-grid {
+    column-count: 2; /* 2 columns for tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .portfolio-grid {
+    column-count: 1; /* 1 column for phones */
+  }
 }
