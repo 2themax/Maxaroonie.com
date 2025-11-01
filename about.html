@@ -10,9 +10,6 @@
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             console.log('Page loaded');
-            // Check if elements exist immediately
-            const btn = document.getElementById('play-about-audio');
-            console.log('Button found:', btn !== null);
         });
     </script>
     <script defer src="script.js"></script>
@@ -21,24 +18,18 @@
 <body>
     <canvas id="starfield-canvas"></canvas>
     <header>
-        ...
         <h1 class="site-title">About Max</h1>
         <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html" class="active">About Me</a>
-    <a href="writings.html">Writings</a>
-    <a href="portfolio.html">Portfolio</a> <a href="index.html#contact">Contact</a>
-</nav>
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About Me</a>
+            <a href="writings.html">Writings</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
     </header>
 
     <section class="about-section">
-        <div class="audio-control-container">
-            <button id="play-about-audio" class="audio-btn" style="cursor:pointer; position:relative; z-index:1000;">
-                Play Audio
-            </button>
-            <audio id="about-audio" src="final_lounge_with_voice_faded.wav" preload="auto"></audio>
-        </div>
-
+        
         <div class="tapestry-grid" style="z-index:1;">
             <div style="background-image: url('doodles/Sillyguy1.jpeg');"></div>
             <div style="background-image: url('doodles/Sillyguy2.jpeg');"></div>
@@ -58,6 +49,13 @@
             <div style="background-image: url('doodles/Sillyguy16.jpeg');"></div>
             <div style="background-image: url('doodles/Sillyguy17.jpeg');"></div>
             <div style="background-image: url('doodles/Sillyguy18.jpeg');"></div>
+        </div>
+        
+        <div class="audio-control-container">
+            <button id="play-about-audio" class="audio-btn">
+                Play Audio
+            </button>
+            <audio id="about-audio" src="final_lounge_with_voice_faded.wav" preload="auto"></audio>
         </div>
 
         <h2>About Me</h2>
@@ -79,5 +77,4 @@
         <p>© 2025 Maxaroonie.com. All rights reserved.</p>
     </footer>
 </body>
-
 </html>

@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Maxaroonie.com: The personal creative space, portfolio, and writings of Maxaroonie.">
     <title>Maxaroonie.com - Home</title>
+    
+    <link rel="preconnect" href="httpss://fonts.googleapis.com">
+    <link rel="preconnect" href="httpss://fonts.gstatic.com" crossorigin>
+    <link href="httpss://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script defer src="script.js"></script>
@@ -13,35 +18,34 @@
 
 <body>
     <canvas id="starfield-canvas"></canvas>
+
     <header>
-        ...
-        <h1 class="site-title">Hello, world!</h1>
-   <nav>
-    <a href="about.html">About Me</a>
-    <a href="writings.html">Writings</a>
-    <a href="portfolio.html">Portfolio</a> <a href="index.html#contact">Contact</a>
-</nav>
+        <h1 class="site-title">Maxaroonie.com</h1>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="writings.html">Writings</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
     </header>
 
     <section class="home-section">
-        <div class="audio-control-container">
-          <button id="play-home-audio" class="audio-btn">Play Audio</button>
-          <audio id="home-audio" src="Audio 1.m4a" preload="metadata" loop></audio>
-        </div>
-
+        
         <div class="home-layout">
-            <div class="home-left">
-                <img src="IMG_4195.GIF" alt="Animated Creative Expression" />
-            </div>
-
             <div class="home-right">
-                <h2>Welcome to Maxaroonie.com!!!!</h2>
+                
+                <div class="audio-control-container">
+                  <button id="play-home-audio" class="audio-btn">Play Audio</button>
+                  <audio id="home-audio" src="Audio 1.m4a" preload="metadata" loop></audio>
+                </div>
+
+                <h2 class="animated-glow">Welcome to Maxaroonie.com!!!!</h2>
                 <p><strong>HEAVILY UNDER CONSTRUCTION...</strong></p>
                 <p>
                     Maxaroonie.com is an online platform that enables me to express my
                     creative ideas through text-based, visual, and audio means.
-                </p>
-                <p>
+                </p> <p>
                     It was created with the intent to provide an open and accessible
                     platform for me to collaborate, create, and learn with others.
                 </p>
@@ -57,22 +61,25 @@
         <h2>Contact</h2>
         <p>Have questions or want to collaborate? Reach out!</p>
         
-        <form action="https://formspree.io/f/xnnoblvw" method="POST" class="contact-form">
+        <form action="httpss://formspree.io/f/xnnoblvw" method="POST" class="contact-form">
+            
             <div class="form-group">
                 <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="_replyto" required>
             </div>
+            
             <div class="form-group">
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
             </div>
+            
             <button type="submit" class="audio-btn">Send</button>
         </form>
         
-        <p>Follow me on social media:
-            <a href="#" target="_blank">links</a> |
-            <a href="#" target="_blank">coming</a> |
-            <a href="#" target="_blank">soon</a>
+        <p>Find me here:
+            <a href="blank" target="_blank">links</a> |
+            <a href="blank" target="_blank">to</a> |
+            <a href="blank" target="_blank">come</a>
         </p>
     </section>
 
