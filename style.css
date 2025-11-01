@@ -1,85 +1,129 @@
 /* ---------------------------------
+   NEW: FADE-IN ANIMATION
+   This provides the "cool animation" on page load.
+---------------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------
    STARFIELD BACKGROUND
 ---------------------------------- */
 #starfield-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #000;
 }
+
 /* ---------------------------------
    GLOBAL & BODY STYLES
+   FIXED: Font-family now correctly uses the loaded Google Fonts.
 ---------------------------------- */
 html, body {
   margin: 0;
   padding: 0;
+  /* FIXED: Using 'Lato' as the base font */
   font-family: 'Lato', Arial, sans-serif;
-  background: transparent; /* <-- This allows the starfield to show through */
-  color: #fff;
+  background: transparent; /* Allows the starfield to show */
+  color: #f0f0f0; /* Slightly softer white for text */
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* Base link styles */
 a {
-  color: #fff;
+  color: #00c6ff; /* Use a single, consistent bright blue */
   text-decoration: none;
-  transition: color 0.2s ease-in-out;
+  font-weight: bold;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 a:hover {
-  color: #00c6ff;
+  color: #fff;
+  text-shadow: 0 0 8px #00c6ff; /* Add a glow on hover */
 }
 
-/* Apply the heading font */
+/* FIXED: Using 'Montserrat' for all headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 700;
-  color: #f0f0f0;
+  color: #fff;
+  margin-top: 0;
 }
 
 .site-title {
   font-weight: 600;
+  margin-bottom: 15px;
 }
+
 /* ---------------------------------
-   HEADER
+   NEW: GLOBAL GLASS-PANEL STYLE
+   This reusable class will be the base for our new design.
+---------------------------------- */
+.glass-panel {
+  background: rgba(10, 10, 10, 0.7); /* Dark, 70% transparent */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Soft shadow */
+  
+  /* The "Frosted Glass" effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
+
+/* ---------------------------------
+   HEADER (REDESIGNED)
+   Now a permanent "glass" bar.
 ---------------------------------- */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
   z-index: 1000;
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  transition: background-color 0.4s ease, 
-              box-shadow 0.4s ease, 
-              backdrop-filter 0.4s ease;
+  
+  /* Apply the glass effect */
+  background: rgba(10, 10, 10, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 nav a {
   margin: 0 15px;
-  font-weight: bold;
 }
 
 /* ---------------------------------
    FIX FOR FIXED-HEADER LAYOUT
+   (Increased padding-top to 150px)
 ---------------------------------- */
 .home-section,
 .about-section,
 .writings-page,
 .portfolio-page {
-    padding-top: 120px;
-    padding-bottom: 40px;
+  padding-top: 150px; /* More space for the fixed header */
+  padding-bottom: 40px;
+  
+  /* Apply the "cool animation" to all main content sections */
+  animation: fadeIn 1s ease-out;
 }
+
 /* ---------------------------------
    HOME PAGE STYLES
+   Applying the "glass-panel" style
 ---------------------------------- */
 .home-section {
   text-align: center;
@@ -90,28 +134,31 @@ nav a {
   display: block;
 }
 
-.home-left img {
-  display: none;
-}
-
 .home-right {
   width: 90%;
   max-width: 800px;
   margin: 40px auto 0 auto;
   text-align: center;
-  background: rgba(20, 20, 20, 0.4);
-  border-radius: 8px;
-  padding: 20px;
-  border: 1px solid #333;
+  padding: 30px;
+  box-sizing: border-box;
+  
+  /* Use the new glass style */
+  background: rgba(10, 10, 10, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
+
 /* ---------------------------------
-   AUDIO BUTTONS (CORRECTED)
+   AUDIO BUTTONS
 ---------------------------------- */
 .audio-control-container {
-  display: flex; /* Use Flexbox */
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px; /* Space between button and slider */
+  gap: 15px;
   margin-bottom: 20px;
   flex-wrap: wrap;
 }
@@ -132,14 +179,26 @@ nav a {
 .audio-btn:active {
   transform: scale(0.95);
 }
+
 /* ---------------------------------
    CONTACT SECTION
+   Applying the "glass-panel" style
 ---------------------------------- */
 .contact-section {
   padding: 40px;
-  background: transparent;
   text-align: center;
+  max-width: 800px;
+  margin: 40px auto;
+  
+  /* Use the new glass style */
+  background: rgba(10, 10, 10, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
+
 .contact-form {
   max-width: 600px;
   margin: 30px auto;
@@ -152,25 +211,25 @@ nav a {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #f0f0f0;
 }
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #444;
   background: #222;
   color: #fff;
   border-radius: 5px;
   box-sizing: border-box;
 }
+
 /* ---------------------------------
    ABOUT PAGE
+   Applying the "glass-panel" style
 ---------------------------------- */
 .about-section {
   position: relative;
   min-height: 80vh;
-  background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -178,53 +237,75 @@ nav a {
   padding-left: 20px;
   padding-right: 20px;
   overflow: hidden;
+  
+  /* Use the glass style on the main text container */
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(10, 10, 10, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
+
 .about-section h2 {
     font-size: 2rem;
     margin-top: 20px;
 }
 .about-section p {
     font-size: 1.1rem;
-    line-height: 1.6;
     max-width: 800px;
     text-align: center;
 }
 .tapestry-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    width: 100%;
-    max-width: 1000px;
-    margin: 20px 0;
-    z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px 0;
+  z-index: 1;
+  border-radius: 8px;
+  overflow: hidden; /* Clips the corners of the grid */
 }
 .tapestry-grid div {
-    padding-top: 100%;
-    background-size: cover;
-    background-position: center;
+  padding-top: 100%;
+  background-size: cover;
+  background-position: center;
 }
+
 /* ---------------------------------
    WRITINGS PAGE
+   Applying the "glass-panel" style
 ---------------------------------- */
 .writings-page {
-    max-width: 800px;
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    background: transparent;
-    border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  
+  /* Use the new glass style */
+  background: rgba(10, 10, 10, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
+
 .writings-intro,
 .creative-piece {
-    text-align: center;
-    border-bottom: 2px solid #444;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
+  text-align: center;
+  border-bottom: 2px solid #444;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
 }
 .journal-excerpt {
-    background: #222;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 30px;
+  background: #1a1a1a; /* Darker interior background */
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #333;
 }
 .journal-excerpt header { padding-bottom: 10px; border-bottom: 1px solid #333; margin-bottom: 15px; }
 .journal-excerpt h3 { margin: 0; color: #00c6ff; }
@@ -232,30 +313,43 @@ nav a {
 .journal-excerpt blockquote { margin: 0; padding-left: 20px; border-left: 4px solid #007bff; font-style: italic; color: #ddd; line-height: 1.7; }
 .journal-excerpt blockquote p { margin-bottom: 15px; }
 .section-divider { border: 0; height: 1px; background: #555; margin: 40px 0; }
+
 /* ---------------------------------
    PORTFOLIO PAGE
 ---------------------------------- */
 .portfolio-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .portfolio-intro {
-    text-align: center;
-    margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px;
+  
+  /* Use the new glass style */
+  background: rgba(10, 10, 10, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 .portfolio-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    background: #222;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  background: #222;
+  
+  /* Add the glass border */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .portfolio-item img { display: block; width: 100%; height: auto; transition: transform 0.3s ease; }
 .portfolio-caption { position: absolute; bottom: 0; left: 0; width: 100%; background: rgba(0, 0, 0, 0.85); color: #fff; padding: 15px; box-sizing: border-box; transform: translateY(100%); transition: transform 0.3s ease-in-out; }
@@ -263,14 +357,18 @@ nav a {
 .portfolio-item:hover img { transform: scale(1.05); }
 .portfolio-caption h3 { margin: 0 0 5px 0; color: #00c6ff; }
 .portfolio-caption p { margin: 0; font-size: 0.9rem; }
+
 /* ---------------------------------
    NAVIGATION ACTIVE STATE
 ---------------------------------- */
 nav a.active {
-    color: #00c6ff;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
+  color: #fff;
+  text-shadow: 0 0 8px #00c6ff;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
+
 /* ---------------------------------
    FOOTER
 ---------------------------------- */
@@ -282,9 +380,12 @@ footer {
   color: #ccc;
   position: relative;
   z-index: 10;
+  margin-top: 40px;
 }
+
 /* ---------------------------------
    ANIMATED GLOW EFFECT
+   (No changes, this is still great)
 ---------------------------------- */
 .animated-glow {
   font-size: 2.5rem;
@@ -292,6 +393,7 @@ footer {
   color: #fff;
   animation: glow 1.5s ease-in-out infinite alternate;
   text-align: center;
+  margin-bottom: 20px; /* Added margin */
 }
 @keyframes glow {
   from {
@@ -313,6 +415,7 @@ footer {
                  0 0 80px #007bff;
   }
 }
+
 /* ---------------------------------
    MEDIA QUERIES FOR MOBILE
 ---------------------------------- */
@@ -326,18 +429,26 @@ footer {
   }
   .home-right {
     width: 95%;
-    padding: 15px;
+    padding: 20px;
   }
   .animated-glow {
     font-size: 2rem;
   }
+  .contact-section,
+  .writings-page,
+  .portfolio-intro,
+  .about-section {
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 20px;
+  }
 }
+
 /* ---------------------------------
-   VOLUME SLIDER STYLES (CORRECTED)
+   VOLUME SLIDER STYLES
 ---------------------------------- */
 .volume-slider {
-  /* REMOVED: display: block; */
-  /* REMOVED: margin: 10px auto 0 auto; */
   width: 180px;
   -webkit-appearance: none;
   appearance: none;

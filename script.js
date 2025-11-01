@@ -46,27 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setupAudioButton('play-home-audio', 'home-audio');
   setupAudioButton('play-about-audio', 'about-audio');
 
-  // --- "GLASS" HEADER ANIMATION (CORRECTED) ---
-  // This REPLACES the old solid-background animation
-  const header = document.querySelector('header');
-  if (header) {
-      window.addEventListener('scroll', () => {
-          const scrollValue = window.scrollY;
-          if (scrollValue > 50) {
-              // Scrolled state: "Glass"
-              header.style.backgroundColor = 'rgba(10, 10, 10, 0.7)';
-              header.style.backdropFilter = 'blur(10px)';
-              header.style.webkitBackdropFilter = 'blur(10px)'; // For Safari
-              header.style.boxShadow = '0 4px 10px rgba(0,0,0,0.3)';
-          } else {
-              // Top of page state: Fully transparent
-              header.style.backgroundColor = 'transparent';
-              header.style.backdropFilter = 'none';
-              header.style.webkitBackdropFilter = 'none';
-              header.style.boxShadow = 'none';
-          }
-      });
-  }
 
   // ---------------------------------
   // STARFIELD ANIMATION ENGINE
